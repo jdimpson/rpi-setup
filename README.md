@@ -1,4 +1,4 @@
-Collection of scripts and reference configs for setting up OS and software on a Raspberry Pi 
+#Collection of scripts and reference configs for setting up OS and software on a Raspberry Pi 
 
 [backup-rpi-sdcard.sh](backup-rpi-sdcard.sh) Reads a block device (not just an SD card) and creates an compressed archive. If the image name you provide ends with .bz2, .xz, or .zip, it will compress them accordingly.
 
