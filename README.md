@@ -8,7 +8,7 @@ If you do want to use a loop device, make sure your `losetup` program support de
 
 This will create `/dev/loop0`, with `/dev/loop0p1` as the boot partition and `/dev/loop0p2` as the root partition.
 
-[etc-NetworkManager-system-connections-aptsec.nmconnection](etc-NetworkManager-system-connections-aptsec.nmconnection) ***REFERENCE ONLY*** This is an extract from an RPi with a configured Wi-Fi interface. RPi OS doesn't seem to use wpa_supplicant anymore (except maybe it does sometimes? I can't tell). So I keep this as reference for NetworkManager (the abomination) stores it configuration. If you replace the dashes in the file name with slashes, you'd know where to find this file. I've replaced the sensitive information from this file. You need to set id, ssid, and wpa_psk.
+[etc-NetworkManager-system-connections-aptsec.nmconnection](etc-NetworkManager-system-connections-aptsec.nmconnection) ***REFERENCE ONLY*** This is an extract from an RPi with a configured Wi-Fi interface. RPi OS doesn't seem to use `wpa_supplicant` anymore (except maybe it does sometimes? I can't tell). So I keep this as reference for how NetworkManager (the abomination) stores it configuration. If you replace the dashes in the file name with slashes, you'd know where to find this file. I've replaced the sensitive information from this file. You need to set id, ssid, and wpa_psk.
 
 [firstrun.sh](firstrun.sh) ***REFERENCE ONLY*** This is an extract from a custom Raspberry Pi OS image circa June 2024. I keep it as reference to know how rpi-imager automates the customization that it does. DON'T RUN THIS; I've modified it to remove keys and passwords, and if it somehow did run correctly, it would brick your image.
 
