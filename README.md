@@ -16,4 +16,6 @@ This will create `/dev/loop0`, with `/dev/loop0p1` as the boot partition and `/d
 
 [mount-img-partitions.sh](mount-img-partitions.sh) ***DEPRECATED*** This attempts to mount a Raspberry Pi OS image file. It uses loop partitions, but doesn't rely on `losetup`. Instead it tries to find the offsets in the image file for each partition. There's some logical or math errors somewhere, so it doesn't get the offsets right. You'd only use it if you don't have a version of `losetup` that supports the `-P` flag. This tool doesn't easily work with `emulate-pi.sh`, because both attempt to handle mounting of the partitions.
 
+[new-ssh-keys-for-image](new-ssh-keys-for-image) This will generate new SSH server keys. I haven't used it in a while, so I'm not sure if it's compatible with recent SSHD default configurations. But it's a start. Intention is to use this when you are duplicating an existing RPi OS image, and want to make unique SSHD keys. Intended to be used with `emulate-pi.sh`.
+
 
