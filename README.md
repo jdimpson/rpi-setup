@@ -1,7 +1,9 @@
 [emulate-pi.sh](emulate-pi.sh) Takes a block device as an argument, treats it as a Raspberry Pi OS image, and attempts to run a shell in a CHROOT via QEMU, so you can do things like install software. Tries to autodetect 32-bit or 64-bit installation, and will work with physical devices (e.g. /dev/sda) and with loop devices (e.g. /dev/loop0). 
 
 If you do want to use a loop device, make sure your losetup program support detection of partitions (the -P flag). For example: 
+
 	losetup -P /dev/loop0 2025-05-13-raspios-bookworm-arm64-lite.img
+
 This will create /dev/loop0 and /dev/loop0p1 as the boot partition, and /dev/loop0p2 as the root partition.
 
 [make-rpi-sdcard.sh](make-rpi-sdcard.sh) Writes a raspbery pi OS image to a block device. Tries to handle different compression formats, and tries to print a percent complete status (although this isn't supported if the compression method doesn't permit access to decompressed file size). Destination could be any block device, not just an SD card.
