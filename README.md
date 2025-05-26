@@ -1,6 +1,8 @@
+Collection of scripts and reference configs for setting up OS and software on a Raspberry Pi 
+
 [backup-rpi-sdcard.sh](backup-rpi-sdcard.sh) Reads a block device (not just an SD card) and creates an compressed archive. If the image name you provide ends with .bz2, .xz, or .zip, it will compress them accordingly.
 
-[emulate-pi.sh](emulate-pi.sh) Takes a block device as an argument, treats it as a Raspberry Pi OS image, and attempts to run a shell via QEMU in `chroot`, so you can do things like install software or change settings. It's not a VM, just an process running in processor instruction emulation. Tries to autodetect 32-bit or 64-bit installations, and will work with physical devices (e.g. `/dev/sda`) and with loop devices (e.g. `/dev/loop0`). 
+[emulate-pi.sh](emulate-pi.sh) Takes a block device as an argument, assumes it is a Raspberry Pi OS image, and attempts to run a shell via QEMU in `chroot`, so you can do things like install software or change settings. It's not a VM, just a ARM process running under instruction emulation. Tries to autodetect 32-bit or 64-bit installations, and will work with physical devices (e.g. `/dev/sda`) and with loop devices (e.g. `/dev/loop0`). 
 
 If you do want to use a loop device, make sure your `losetup` program support detection of partitions (the -P flag). For example: 
 
@@ -8,7 +10,9 @@ If you do want to use a loop device, make sure your `losetup` program support de
 
 This will create `/dev/loop0`, with `/dev/loop0p1` as the boot partition and `/dev/loop0p2` as the root partition.
 
-[etc-NetworkManager-system-connections-aptsec.nmconnection](etc-NetworkManager-system-connections-aptsec.nmconnection) ***REFERENCE ONLY*** This is an extract from an RPi with a configured Wi-Fi interface. RPi OS doesn't seem to use `wpa_supplicant` anymore (except maybe it does sometimes? I can't tell). So I keep this as reference for how NetworkManager (the abomination) stores it configuration. If you replace the dashes in the file name with slashes, you'd know where to find this file. I've replaced the sensitive information from this file. You need to set id, ssid, and wpa_psk.
+This will run on amd64/x86, and it will also run under ARM aarch64, but unfortunately you cannot run 32-bit processes under 64-bit kernel.
+
+[etc-NetworkManager-system-connections-aptsec.nmconnection](etc-NetworkManager-system-connections-aptsec.nmconnection) ***REFERENCE ONLY*** This is an extract from an RPi with a configured Wi-Fi interface. RPi OS doesn't seem to use `wpa_supplicant` anymore (except maybe it does sometimes? I can't tell). So I keep this as reference for how NetworkManager (the abomination) stores its configuration. If you replace the dashes in the file name with slashes, you'll know where to find this file. I've replaced the sensitive information from this file. You need to set id, ssid, and wpa_psk.
 
 [firstrun.sh](firstrun.sh) ***REFERENCE ONLY*** This is an extract from a custom Raspberry Pi OS image circa June 2024. I keep it as reference to know how rpi-imager automates the customization that it does. DON'T RUN THIS; I've modified it to remove keys and passwords, and if it somehow did run correctly, it would brick your image.
 
